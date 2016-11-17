@@ -1,14 +1,17 @@
-require 'appointment'
+require 'spec_helper'
 
 describe Appointment do
 
   before(:each) do
-    time = "12:40"
-    json = double(:availability_slots)
-    @appointment = Appointment.new(time, json)
+    @json = JSON_SAMPLE_MOCK.to_json
   end
 
-  it "returns and appointment when passed a time and a JSON" do
-    expect(@appointment.get_an_appointment).to eq "12:50"
+
+  it "must return one of the times allocated in the JSON" do
+    time = "8:40"
+    @appointment = Appointment.new(time, @json)
+    expect(@appointment.get_an_appointment).to eq "8:50"
   end
+
+
 end
