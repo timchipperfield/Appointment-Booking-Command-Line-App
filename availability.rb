@@ -1,4 +1,8 @@
 #!/usr/bin/env ruby
+require_relative './lib/appointment'
 
-name = ARGV[0]
-puts "Hello #{name}!"
+time = ARGV[0]
+json = File.read("./availability_slots.json")
+
+appointment = Appointment.new(time, json)
+puts appointment.get_an_appointment

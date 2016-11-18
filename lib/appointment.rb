@@ -1,5 +1,5 @@
 require 'json'
-
+require 'time'
 
 class Appointment
 
@@ -9,17 +9,23 @@ class Appointment
   end
 
   def get_an_appointment
-    format_time(search_available_slots["time"])
+    if search_available_slots
+      format_time(search_available_slots["time"])
+    else
+      "Sorry, we're closed for the day. Please try again tomorrow"
+    end
   end
+
+  private
 
   def search_available_slots
     @json["availability_slots"].find do |slot|
-      Time.parse(slot["time"]) > @time
+         Time.parse(slot["time"]) > @time
     end
   end
 
   def format_time(time)
-    Time.parse(time).strftime("%l:%M").gsub(" ", "")
+      Time.parse(time).strftime("%l:%M").gsub(" ", "")
   end
 
 end
