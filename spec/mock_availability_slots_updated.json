@@ -1,4 +1,4 @@
-JSON_SAMPLE_MOCK = {
+{
    "availability_slots":[
      {
         "time":"08:00:00",
@@ -12,8 +12,8 @@ JSON_SAMPLE_MOCK = {
      },
      {
         "time":"08:50:00",
-        "slot_size":10,
-        "doctor_id":2
+        "slot_size":0,
+        "doctor_id":1
      },
      {
         "time":"09:10:00",
@@ -21,22 +21,37 @@ JSON_SAMPLE_MOCK = {
         "doctor_id":1
      },
      {
-        "time":"09:20:00",
+        "time":"09:50:00",
         "slot_size":10,
         "doctor_id":1
      },
      {
-        "time":"09:40:00",
+        "time":"09:50:00",
         "slot_size":10,
-        "doctor_id":1
+        "doctor_id":2
      },
      {
         "time":"10:50:00",
         "slot_size":10,
         "doctor_id":1
      },
+     {
+        "time":"10:50:00",
+        "slot_size":10,
+        "doctor_id":2
+     },
+     {
+        "time":"11:00:00",
+        "slot_size":10,
+        "doctor_id":1
+     },
       {
-         "time":"13:10:00",
+         "time":"13:50:00",
+         "slot_size":10,
+         "doctor_id":2
+      },
+      {
+         "time":"14:00:00",
          "slot_size":10,
          "doctor_id":1
       },
@@ -51,4 +66,4 @@ JSON_SAMPLE_MOCK = {
          "doctor_id":2
       }
    ]
- }
+}
