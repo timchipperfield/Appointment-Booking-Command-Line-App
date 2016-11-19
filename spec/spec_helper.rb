@@ -21,8 +21,12 @@ RSpec.configure do |config|
     allow(@update).to receive(:update_availability_slots)
   end
 
-  def mock_availability_slots_json
+  def mock_updated_availability_slots_json
     File.read('./spec/mock_availability_slots_updated.json')
+  end
+
+  def mock_original_availability_slots_json
+    File.read('./spec/mock_availability_slots.json')
   end
 
 end

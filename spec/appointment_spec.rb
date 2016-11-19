@@ -46,7 +46,7 @@ describe Appointment do
     it "does not allow the appointments to use the same availability slot" do
       time1 = "8:30"
       time2 = "8:30"
-      @json_updated = mock_availability_slots_json
+      @json_updated = mock_updated_availability_slots_json
 
       appointment1 = Appointment.new(time1, @json)
       appointment2 = Appointment.new(time2, @json_updated)

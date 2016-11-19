@@ -4,10 +4,10 @@ require 'appointment_update'
 
 class Appointment
 
-  def initialize(time, json, path = "./spec/mock_availability_slots.json")
+  def initialize(time, json)
     @time = Time.parse(time)
     @parsed_json = JSON.parse(json)
-    @update = Appointment_Update.new(@parsed_json, path)
+    @update = Appointment_Update.new(@parsed_json)
   end
 
   def get_an_appointment
