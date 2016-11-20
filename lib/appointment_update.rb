@@ -8,7 +8,7 @@ class Appointment_Update
 
   def update_availability_slots(index_to_be_changed, json_path = nil)
     json = convert_to_pretty_json(format_json(index_to_be_changed))
-    check_for_path(json_path, json)
+    if_path_write_correction(json_path, json)
     return convert_to_pretty_json(format_json(index_to_be_changed))
   end
 
@@ -20,7 +20,7 @@ class Appointment_Update
     end
   end
 
-  def check_for_path(json_path, json)
+  def if_path_write_correction(json_path, json)
     if json_path
       write_to_file(json_path, json)
     end
@@ -32,13 +32,17 @@ class Appointment_Update
 
   def return_slots(slot, index_to_be_changed)
     if index_to_be_changed
-      if (slot == @json["availability_slots"][index_to_be_changed])
-         slot["slot_size"] = 0
-      end
-      slot
+      slot_full(slot, index_to_be_changed)
     else
       slot
     end
+  end
+
+  def slot_full(slot, index_to_be_changed)
+    if (slot == @json["availability_slots"][index_to_be_changed])
+       slot["slot_size"] = 0
+    end
+    slot
   end
 
   def convert_to_pretty_json(parsed_json)

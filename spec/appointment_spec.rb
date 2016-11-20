@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Appointment do
 
   context "single appointment" do

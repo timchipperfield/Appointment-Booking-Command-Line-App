@@ -27,7 +27,6 @@ module Helpers
   end
 
   def write_json_back_to_normal
-
     to_write = JSON.pretty_generate({"availability_slots" => normal_slot_array})
     File.open("./availability_slots.json", 'w') { |f| f.write(to_write) }
   end

@@ -1,5 +1,3 @@
-require "spec_helper"
-
 describe "the command line application itself" do
 
   after :all do
