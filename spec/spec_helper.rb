@@ -1,7 +1,15 @@
 require 'appointment'
+require 'helpers'
 require 'json'
+require "childprocess"
+require "tempfile"
 
 RSpec.configure do |config|
+
+  config.include Helpers
+
+  $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+  ::Dir.glob(::File.expand_path('../support/**/*.rb', __FILE__)).each { |f| require_relative f }
 
   config.expect_with :rspec do |expectations|
 
@@ -14,19 +22,5 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-  def mock_update_class
-    @update_class = stub_const("Appointment_Update", double("update_class"))
-    @update = double("instance of update")
-    allow(@update_class).to receive(:new) {@update}
-    allow(@update).to receive(:update_availability_slots)
-  end
-
-  def mock_updated_availability_slots_json
-    File.read('./spec/mock_availability_slots_updated.json')
-  end
-
-  def mock_original_availability_slots_json
-    File.read('./spec/mock_availability_slots.json')
-  end
-
 end
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)

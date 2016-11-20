@@ -5,7 +5,7 @@ describe Appointment do
   context "single appointment" do
 
     before(:each) do
-      @json = File.read('./spec/mock_availability_slots.json')
+      @json = File.read('./spec/json_mocks/mock_availability_slots.json')
       mock_update_class
     end
 
@@ -31,16 +31,28 @@ describe Appointment do
   context "sequential appointments" do
 
     before(:each) do
-      @json = File.read('./spec/mock_availability_slots.json')
+      @json = File.read('./spec/json_mocks/mock_availability_slots.json')
       mock_update_class
     end
 
     it "allows one appointment to be made after another" do
       time1 = "8:40"
       time2 = "8:50"
+
       appointment1 = Appointment.new(time1, @json)
       appointment2 = Appointment.new(time2, @json)
+
       expect(appointment2.get_an_appointment).to eq "9:10"
+    end
+
+    it "allows two appointments at the same time with two different doctors" do
+    time1 = "9:45"
+    time2 = "9:45"
+
+    appointment1 = Appointment.new(time1, @json)
+    appointment2 = Appointment.new(time2, @json)
+    expect(appointment1.get_an_appointment).to eq "9:50"
+    expect(appointment2.get_an_appointment).to eq "9:50"
     end
 
     it "does not allow the appointments to use the same availability slot" do

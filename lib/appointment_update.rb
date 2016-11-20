@@ -1,20 +1,27 @@
+#can take a json and return a new, updated json with a slot filled
+
 class Appointment_Update
 
   def initialize(json)
     @json = json
+
   end
 
-  def update_availability_slots(index_to_be_changed)
-    updated_slots = revised_parsed_json(index_to_be_changed)
-    convert_to_pretty_json(updated_slots)
+  def update_availability_slots(index_to_be_changed, json_path)
+    json = convert_to_pretty_json(format_json(index_to_be_changed))
+    write_to_file(json_path, json)
   end
 
   private
 
-  def revised_parsed_json(index_to_be_changed)
+  def revised_json_array(index_to_be_changed)
     @json["availability_slots"].map do |slot|
       return_slots(slot, index_to_be_changed)
     end
+  end
+
+  def format_json(index_to_be_changed)
+    {"availability_slots" => revised_json_array(index_to_be_changed)}
   end
 
   def return_slots(slot, index_to_be_changed)
@@ -26,6 +33,10 @@ class Appointment_Update
 
   def convert_to_pretty_json(parsed_json)
     JSON.pretty_generate(parsed_json)
+  end
+
+  def write_to_file(json_path, json)
+    File.open(json_path, 'w') { |f| f.write(json) }
   end
 
 end
