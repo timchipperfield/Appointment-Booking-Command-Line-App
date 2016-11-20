@@ -1,5 +1,16 @@
-# Babylon Ruby Test
+# Babylon Ruby Test [![Build Status](https://travis-ci.org/timchipperfield/Appointment-Tech-Test.svg?branch=master)](https://travis-ci.org/timchipperfield/Appointment-Tech-Test) [![Coverage Status](https://coveralls.io/repos/github/timchipperfield/Appointment-Tech-Test/badge.svg?branch=master)](https://coveralls.io/github/timchipperfield/Appointment-Tech-Test?branch=master)
+
 Your task is to create an app that will allow patients to book appointments with a doctor, using the dataset provided.
+
+#Running Instructions
+1. Clone repo to local repository
+2. run bundle
+3. Go to the root of the directory
+4. to start app: type: ./availability.rb time (where time is formatted as a 24 hour clock, ex. 13:45)
+5. The response will be a time in 12-hour format (see constraints below)
+
+#To Run Tests
+Type 'rspec' in the terminal.
 
 ## Requirements
 You should create a command line app that accepts a single argument, which is the time that the patient would like to book to see a doctor. Eg:
