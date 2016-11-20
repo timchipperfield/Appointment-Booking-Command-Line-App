@@ -66,4 +66,15 @@ describe Appointment do
       expect(appointment2.get_an_appointment).to eq "9:10"
     end
   end
+
+  context "it can provide the index of the appointment" do
+
+    it "returns the index" do
+      json = File.read('./spec/json_mocks/mock_availability_slots.json')
+      time = "8:50"
+
+      appointment = Appointment.new(time, json)
+      expect(appointment.appointment_index).to eq 3
+    end
+  end
 end
