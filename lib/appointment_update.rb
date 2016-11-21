@@ -3,7 +3,7 @@
 class Appointment_Update
 
   def initialize(json)
-    @json = json
+    @json = JSON.parse(json)
   end
 
   def update_availability_slots(index_to_be_changed, json_path = nil)

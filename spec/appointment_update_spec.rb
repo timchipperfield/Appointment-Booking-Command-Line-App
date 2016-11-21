@@ -1,8 +1,8 @@
 describe Appointment_Update do
 
   before(:each) do
-    parsed_json = JSON.parse(mock_original_availability_slots_json)
-    @update = Appointment_Update.new(parsed_json)
+    json = mock_original_availability_slots_json
+    @update = Appointment_Update.new(json)
   end
 
   it "returns with the indexed time unavailable" do

@@ -11,6 +11,5 @@ puts appointment.get_an_appointment
 
 index = appointment.appointment_index
 
-parsed_json = JSON.parse(json)
-update = Appointment_Update.new(parsed_json)
+update = Appointment_Update.new(json)
 update.update_availability_slots(index, path)
