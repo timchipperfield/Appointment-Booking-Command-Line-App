@@ -1,6 +1,6 @@
-# Babylon Ruby Test [![Build Status](https://travis-ci.org/timchipperfield/Appointment-Tech-Test.svg?branch=master)](https://travis-ci.org/timchipperfield/Appointment-Tech-Test) [![Coverage Status](https://coveralls.io/repos/github/timchipperfield/Appointment-Tech-Test/badge.svg?branch=master)](https://coveralls.io/github/timchipperfield/Appointment-Tech-Test?branch=master)
+# Appointment Booking Command Line App [![Build Status](https://travis-ci.org/timchipperfield/Appointment-Tech-Test.svg?branch=master)](https://travis-ci.org/timchipperfield/Appointment-Tech-Test) [![Coverage Status](https://coveralls.io/repos/github/timchipperfield/Appointment-Tech-Test/badge.svg?branch=master)](https://coveralls.io/github/timchipperfield/Appointment-Tech-Test?branch=master)
 
-Your task is to create an app that will allow patients to book appointments with a doctor, using the dataset provided.
+The task is to create an app that will allow patients to book appointments with a doctor, using the dataset provided.
 
 ## Running Instructions
 1. Clone repo to local repository

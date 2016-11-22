@@ -2,8 +2,6 @@ require 'json'
 require 'time'
 require_relative './appointment_update'
 
-#can provide an appointment and its index from the json if one is available
-
 class Appointment
 
   def initialize(time, json)

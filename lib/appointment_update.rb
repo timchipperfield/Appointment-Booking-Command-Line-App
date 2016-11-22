@@ -1,5 +1,3 @@
-#can take a json and return a new, updated json with a slot filled
-
 class Appointment_Update
 
   def initialize(json)
